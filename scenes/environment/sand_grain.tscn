@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhj2wksygj2fa"]
+
+[ext_resource type="Script" path="res://scenes/environment/sand_grain.gd" id="1_06ahj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb0ba"]
+albedo_color = Color(0.520093, 0.457025, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ljiw0"]
+material = SubResource("StandardMaterial3D_rb0ba")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kv687"]
+
+[node name="SandGrain" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 13
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_06ahj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visibility_range_end = 35.0
+visibility_range_end_margin = 5.0
+visibility_range_fade_mode = 1
+mesh = SubResource("SphereMesh_ljiw0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_kv687")
+
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://oikyq61mrk16"]
+
+[ext_resource type="Script" path="res://scenes/environment/physics_server_sand.gd" id="1_2hsji"]
+
+[node name="PhysicsServerSand" type="Node3D"]
+script = ExtResource("1_2hsji")

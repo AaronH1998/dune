@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://b70fofg6kxny5"]
+
+[ext_resource type="Script" path="res://scenes/environment/multi_mesh_sand.gd" id="1_armyn"]
+[ext_resource type="Texture2D" uid="uid://dvc27m32171q6" path="res://icon.svg" id="1_arv87"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kjbh"]
+albedo_texture = ExtResource("1_arv87")
+
+[sub_resource type="SphereMesh" id="SphereMesh_h7s4q"]
+material = SubResource("StandardMaterial3D_2kjbh")
+
+[sub_resource type="MultiMesh" id="MultiMesh_5k5xg"]
+mesh = SubResource("SphereMesh_h7s4q")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00204027, -5.96046e-08, -0.00111461)
+multimesh = SubResource("MultiMesh_5k5xg")
+script = ExtResource("1_armyn")
