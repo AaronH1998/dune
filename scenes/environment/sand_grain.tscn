@@ -7,8 +7,11 @@ albedo_color = Color(0.520093, 0.457025, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_ljiw0"]
 material = SubResource("StandardMaterial3D_rb0ba")
+radius = 0.005
+height = 0.01
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kv687"]
+radius = 0.005
 
 [node name="SandGrain" type="RigidBody3D"]
 collision_layer = 4

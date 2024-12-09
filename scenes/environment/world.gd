@@ -3,7 +3,7 @@ extends Node3D
 @export var layers = 10
 @export var size = 48
 @export var grains_per_frame = 250  # Number of grains to spawn per frame
-
+@export var particle_size = 0.01
 @onready var sand: Node3D = $Sand
 
 var sleep_count = 0
@@ -21,9 +21,11 @@ func _process(_delta):
 		while grains_spawned < grains_per_frame and y < layers:
 			# Spawn a sand grain
 			var sand_grain = sand_grain_scene.instantiate() as RigidBody3D
-			sand_grain.position.x = x
-			sand_grain.position.z = z
-			sand_grain.position.y = y
+			sand_grain.position.x = x * particle_size
+			sand_grain.position.z = z * particle_size
+			sand_grain.position.y = y * particle_size
+			sand_grain.freeze = true
+			add_sleeper(true)
 			sand_grain.connect("sleep", add_sleeper)
 			sand.add_child(sand_grain)
 			

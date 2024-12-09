@@ -9,8 +9,6 @@ signal sleep(val)
 func _ready():
 	if is_shot:
 		apply_central_impulse(shoot_direction * shoot_force)
-	else: 
-		freeze_self()
 
 
 func freeze_self():
