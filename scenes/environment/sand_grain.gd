@@ -28,3 +28,7 @@ func scoop(direction, force):
 
 func _on_sleeping_state_changed():
 	freeze_self()
+
+
+func show_mesh():
+	$MeshInstance3D.visible = true

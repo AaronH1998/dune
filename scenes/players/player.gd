@@ -51,12 +51,11 @@ func _physics_process(delta):
 	rotation_degrees.y = yaw
 	rotation_degrees.x = pitch
 	
-	if Input.is_action_pressed("scoop"):
-		scooper.disabled = false
-	else:
-		scooper.disabled = true
-		
-		
+	#if Input.is_action_pressed("scoop"):
+		#scooper.disabled = false
+	#else:
+		#scooper.disabled = true
+
 	# Add the gravity.
 	if !is_flying:
 		if !is_on_floor():
@@ -97,6 +96,7 @@ func _physics_process(delta):
 		$Timer.start()
 		
 	move_and_slide()
+	
 
 
 func _on_area_3d_body_entered(body):

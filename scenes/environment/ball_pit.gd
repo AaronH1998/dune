@@ -1,10 +1,10 @@
-extends Node3D
+extends Node
 
 @export var layers = 10
 @export var size = 48
 @export var grains_per_frame = 250  # Number of grains to spawn per frame
 @export var particle_size = 0.01
-@onready var sand: Node3D = $Sand
+@export var origin: Node3D
 
 var sleep_count = 0
 var y = 0
@@ -14,7 +14,7 @@ var z = -size
 var sand_grain_scene = preload("res://scenes/environment/sand_grain.tscn")
 
 func _process(_delta):
-	$CanvasLayer/Control/MarginContainer/VBoxContainer/ParticleNumber/Value.text = str(sand.get_child_count())
+	$CanvasLayer/Control/MarginContainer/VBoxContainer/ParticleNumber/Value.text = str(origin.get_child_count())
 	$CanvasLayer/Control/MarginContainer/VBoxContainer/SleepNumber/Value.text = str(sleep_count)
 	if y < layers:
 		var grains_spawned = 0
@@ -27,7 +27,7 @@ func _process(_delta):
 			sand_grain.freeze = true
 			add_sleeper(true)
 			sand_grain.connect("sleep", add_sleeper)
-			sand.add_child(sand_grain)
+			origin.add_child(sand_grain)
 			
 			# Move to the next position
 			z += 1
@@ -53,5 +53,5 @@ func _on_player_shoot(pos, dir, force):
 	sand_grain.shoot_direction = dir
 	sand_grain.shoot_force = force
 	sand_grain.connect("sleep", add_sleeper)
-	sand.add_child(sand_grain)
+	origin.add_child(sand_grain)
 	sand_grain.global_position = pos

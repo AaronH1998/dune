@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddwxvgfydqxhh"]
+
+[ext_resource type="Script" path="res://scenes/environment/ball_pit.gd" id="1_3d5h6"]
+
+[node name="BallPit" type="Node"]
+script = ExtResource("1_3d5h6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="ParticleNumber" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ParticleNumber"]
+layout_mode = 2
+text = "No. of particles"
+
+[node name="Value" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ParticleNumber"]
+layout_mode = 2
+
+[node name="SleepNumber" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/SleepNumber"]
+layout_mode = 2
+text = "No. of sleeping particles"
+
+[node name="Value" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/SleepNumber"]
+layout_mode = 2

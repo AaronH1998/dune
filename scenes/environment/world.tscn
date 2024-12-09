@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf4ibpppxc7e4"]
+[gd_scene load_steps=6 format=3 uid="uid://cf4ibpppxc7e4"]
 
-[ext_resource type="Script" path="res://scenes/environment/world.gd" id="1_g0bhr"]
 [ext_resource type="PackedScene" uid="uid://baldsdn4t18gn" path="res://scenes/players/player.tscn" id="1_rkhkf"]
 [ext_resource type="MeshLibrary" uid="uid://cae3tebm7nk12" path="res://mesh_libraries/ground_mesh_library.tres" id="3_h3i3g"]
 
@@ -18,7 +17,6 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 
 [node name="World" type="Node3D"]
-script = ExtResource("1_g0bhr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kg5nl")
@@ -30,46 +28,6 @@ shadow_blur = 0.1
 [node name="Sand" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 45
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
-layout_mode = 2
-
-[node name="ParticleNumber" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ParticleNumber"]
-layout_mode = 2
-text = "No. of particles"
-
-[node name="Value" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/ParticleNumber"]
-layout_mode = 2
-
-[node name="SleepNumber" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/SleepNumber"]
-layout_mode = 2
-text = "No. of sleeping particles"
-
-[node name="Value" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/SleepNumber"]
-layout_mode = 2
-
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("3_h3i3g")
 cell_size = Vector3(1, 1, 1)
@@ -79,6 +37,6 @@ data = {
 metadata/_editor_floor_ = Vector3(50, 0, -50)
 
 [node name="Player" parent="." instance=ExtResource("1_rkhkf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43558, 34.104, 27.1122)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19872, 3.92582)
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
